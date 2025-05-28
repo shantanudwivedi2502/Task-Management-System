@@ -9,9 +9,14 @@ const PORT=process.env.PORT
 const app =express() 
 
 app.use(express.json())
+const cors = require("cors");
+
 app.use(cors({
-    origin:'https://task-management-system-fronted-wf2z.onrender.com'//http://localhost:5173
-}))
+  origin: "https://task-management-system-fronted-wf2z.onrender.com",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
+
 
 app.get('/', (req, res) => {
     res.send('Backend API is running');//chat gpt 

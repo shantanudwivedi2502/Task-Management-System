@@ -10,8 +10,16 @@ const app =express()
 
 app.use(express.json())
 app.use(cors({
-    origin:'http://localhost:5173'
+    origin:'https://task-management-system-fronted-wf2z.onrender.com'//http://localhost:5173
 }))
+
+app.get('/', (req, res) => {
+    res.send('Backend API is running');//chat gpt 
+  });
+  
+
+
+
 app.use('/api/task',Taskrouter)
 mongoose.connect(process.env.MONGODB_CONN).then(()=>{
     console.log('Database connected.')
